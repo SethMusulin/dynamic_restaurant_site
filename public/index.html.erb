@@ -31,11 +31,12 @@
   <img src="/images/food1.jpg">
 
   <dl>
-    <% Menu.new.items.each do |item| %>
+    <% Menu.new(File.expand_path("./config/menu.csv")).items.each do |item| %>
         <dt><%= item.name %> - <%= item.price%></dt>
-        <dd><img src="/images/<%= item.image_link %>.jpg"> <br>
+        <dd><img src="/images/<%= item.image %>"> <br>
         <%= item.description %> </dd>
     <% end %>
+
   </dl>
 </main>
 

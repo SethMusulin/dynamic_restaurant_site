@@ -29,7 +29,7 @@ describe Item do
   it 'has a picture image' do
         item = Item.new("Channa Masala", 5.95, "Yummy goodness", "food1")
 
-        expect(item.image_link).to eq "food1"
+        expect(item.image).to eq "food1"
 end
 end
 

@@ -8,19 +8,10 @@ describe 'Visiting the home page' do
     expect(page).to have_content("Chicken Tikka Masala")
   end
 
-  it "displays the current year for the copyright" do
+  it "displays the current year for the copyright date" do
     visit "/"
-
     within("footer") do
       expect(page).to have_content("2014")
     end
-    end
-  it "dislpays the picture of the menu item" do
-    visit "/"
-
-    expect(page).to have_content("images/food1.jpg")
-    expect(page).to have_content("images/food2.jpg")
   end
-
-
-  end
+end
