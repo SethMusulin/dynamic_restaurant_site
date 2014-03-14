@@ -1,8 +1,9 @@
 class Item
-  def initialize (name, price, description)
+  def initialize (name, price, description, image_link)
     @name = name
     @price = price
     @description = description
+    @image = image_link
   end
 
   def name
@@ -19,6 +20,10 @@ class Item
     def == (other)
         self.name == other.name
         self.price == other.price
-    self.description == other.description
+        self.description == other.description
     end
+
+  def image_link
+    @image
+  end
 end

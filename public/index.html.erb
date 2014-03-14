@@ -31,9 +31,10 @@
   <img src="/images/food1.jpg">
 
   <dl>
-    <%Menu.new.items.each do |item| %>
+    <% Menu.new.items.each do |item| %>
         <dt><%= item.name %> - <%= item.price%></dt>
-        <dd><%= item.description %> </dd>
+        <dd><img src="/images/<%= item.image_link %>.jpg"> <br>
+        <%= item.description %> </dd>
     <% end %>
   </dl>
 </main>
