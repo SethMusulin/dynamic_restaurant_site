@@ -1,14 +1,15 @@
-  require 'erb'
+require 'erb'
+require 'item'
 
 class App
   def call(env)
     [
-      200,
-      {
-        'Content-Type' => 'text/html',
-        'Cache-Control' => 'public, max-age=0'
-      },
-      body
+        200,
+        {
+            'Content-Type' => 'text/html',
+            'Cache-Control' => 'public, max-age=0'
+        },
+        body
     ]
   end
 
@@ -20,7 +21,8 @@ class App
     if File.exist?(index_html)
       File.open(index_html, File::RDONLY)
     else
-      [ERB.new(File.open(index_erb, File::RDONLY).read).result]
+      file_contents = File.open(index_erb, File::RDONLY).read
+      [ERB.new(file_contents).result]
     end
   end
 end

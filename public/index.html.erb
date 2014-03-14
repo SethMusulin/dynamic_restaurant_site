@@ -31,14 +31,6 @@
   <img src="/images/food1.jpg">
 
   <dl>
-    <% = item.new =("Channa Masala", 5.95, "Yummy goodness"), item.new =("Chicken Tikka Masala", 5.95, "Yummy goodness")
-
-       <dt>item</dt>
-    <dd></dd>
-    
-    <dt> /dd>
-  </dl>
-
     <% [Item.new("Channa Masala", 5.95, "Yummy goodness"), Item.new("Chicken Tikka Masala", 5.95, "Yummy goodness")].each do |item| %>
                 <dt><%= item.name %> - <%= item.price%></dt>
                 <dd><%= item.description %> </dd>
