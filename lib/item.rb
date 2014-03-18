@@ -1,10 +1,19 @@
 class Item
+  attr_reader :name, :description, :image_name
 
-  def initialize (name, price, description, image)
+  def initialize (name, price, description, image_name = nil)
     @name = name
     @price = price
     @description = description
-    @image = image
+    @image_name = image_name
+
+  end
+
+  def == (other)
+    self.name == other.name
+    self.price == other.price
+    self.description == other.description
+    self.image_name == other.image_name
   end
 
   def price(day = Date.today)
@@ -13,15 +22,6 @@ class Item
     else
       @price
     end
-    end
-
-
-    def == (other)
-      self.name == other.name
-      self.price == other.price
-      self.description == other.description
-      self.image == other.image
-    end
-
-    end
+  end
+end
 
