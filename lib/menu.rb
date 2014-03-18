@@ -2,18 +2,18 @@ require 'item'
 require 'csv'
 
 class Menu
-  def initialize (file_info)
-    @file_info = CSV.read(file_info, headers:true)
-  end
 
+    def initialize(day_of_week = Date.today.strftime("%a"))
+      @items = []
+      CSV.foreach(File.absolute_path("config/menu.csv"), {:headers => true}) do |row|
+        if row["days"].include?(day_of_week) || row["days"].include?("All")
+          @items << Item.new(row["name"], row["price"], row["description"], row["image"])
+        end
+      end
+    end
 
-
-  def items
-    a =[]
-    @file_info.each do |row|
-    a.push(Item.new(row["name"], row["price"], row["description"], row["image"]))
+    def items
+      @items
+    end
   end
-    a
-  end
-end
 
